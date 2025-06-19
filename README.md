@@ -35,6 +35,7 @@ You can follow my daily progress on Twitter: [@JekenMaharjan](https://twitter.co
 
 ---
 
-📢 **Feel free to explore, fork, or contribute ideas!**  
-Let’s grow together in tech 💡
+> 📢 **Feel free to explore, fork, or contribute ideas!**
+
+> Let’s grow together in tech 💡
 
