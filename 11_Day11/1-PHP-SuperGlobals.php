@@ -29,7 +29,7 @@
                 myfunction()
         // -> This is different from other programming languages where global variables are available without specifically referring to them as global.
         // -> Example: In PHP you get nothing (or an error) when referring to a global variable without the $GLOBALS syntax:
-                $x = 75;
+                $x = 75;    // error
                 
                 function myfunction() {
                 echo $x;
