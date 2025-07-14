@@ -1,0 +1,69 @@
+✅ MVC stands for Model–View–Controller, and it's the core architectural pattern that Laravel is built on. It helps in organizing code properly and separating the business logic from the user interface.
+
+
+✅ Role of Each Layers:
+    | Layer          | Role                                                       |
+    | -------------- | ---------------------------------------------------------- |
+    | Model      	 | Manages data and logic (interacts with the database).      |
+    | View       	 | Handles how things look (UI – HTML, Blade templates).      |
+    | Controller 	 | Acts as a bridge between Model and View, handles requests. |
+
+
+✅ Where can you find them in our Laravel Project:
+    🔹 Model -> firstwebsite > app > Models
+    🔹 View -> firstwebsite > resources > views
+    🔹 Controller -> firstwebsite > app > Http > Controllers
+
+
+1️⃣ Model:
+    📁 firstwebsite/app/Models
+    ✅ Purpose:
+        🔹 Stores Eloquent model classes.
+        🔹 Each model represents a database table.
+        🔹 Example: User.php handles all interactions with the users table (e.g., retrieving, inserting, updating users).
+    🧠 Usage:
+        <?php
+            User::all(); // Fetch all users from DB
+        ?>
+        
+
+2️⃣ View:
+    📁 firstwebsite/resources/views
+    ✅ Purpose:
+        🔹 Contains Blade template files (*.blade.php) for your frontend/UI.
+        🔹 These are the files that render HTML for users.
+        🔹 Example: welcome.blade.php is the default view shown when visiting the homepage.
+    🧠 Usage:
+        <?php
+            return view('welcome'); // Loads welcome.blade.php
+        ?>
+
+
+3️⃣ Controller:
+    📁 firstwebsite/app/Http/Controllers
+    ✅ Purpose:
+        🔹 Contains controller classes that handle logic between Models and Views.
+        🔹 You write methods here to process user requests and return appropriate responses.
+    🧠 Example:
+        <?php
+            public function showUsers() {
+                $users = User::all();
+                return view('users.index', compact('users'));
+            }
+        ?>
+
+
+4️⃣ Routes:
+    📁 firstwebsite/routes/web.php and console.php
+    ✅ Purpose:
+        | File            | Description                                                                            |
+        | --------------- | -------------------------------------------------------------------------------------- |
+        | web.php         | Defines web route  that respond to browser requests using controllers or closures.     |
+        | console.php     | Defines Artisan CLI command  (custom terminal commands).                               |
+    🧠 Example in web.php:
+        <?php
+            Route::get('/home', [HomeController::class, 'index']);
+        ?>
+    
+🚀 To run the Laravel Project go to your project then type: "php artisan serve". This will run the project and provides URL for your server running through which you can view your 
+    project live.
