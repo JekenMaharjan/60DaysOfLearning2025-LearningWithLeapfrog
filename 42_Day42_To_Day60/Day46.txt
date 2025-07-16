@@ -1,0 +1,22 @@
+📚  Day 46 - Learning Laravel: How to setup test server or a development build:
+
+->  When building our website, we want to have a "test build", that only we(developer) can see, which isn't visible to anyone who visit our live website.
+    Therefor, we need to have a "test version" that we develop in, and a "live version" which viewers can see online. Both versions exist inside our
+    Laravel project at the same time, which is most likely different from how we have done things up until now.
+    So, essentially, the reason we do this, is so that we can develop on our website, and once we are happy with the changes, we can then push the changes
+    into the live version of our website.
+->  Make sure you have vite.config.js and package.json.
+->  Make sure you have latest LTS node.js : visit -> https://nodejs.org/en/download and download latest LTS node.js
+    The reason we want to have node.js in our system because it has something that allows us to run into the server with server side JavaScript.
+->  Make sure to change the environment of our project in .env file -> APP_URL=http://localhost/60DaysOfLearning2025-LearningWithLeapfrog/42_Day42_To_Day60/firstwebsite/public
+->  Starting up our testing server:
+    1. Run: npm install vite --save-dev
+    2. Run: npx vite
+        -> This starts testing server. Then, Ctrl+Click the APP_URL link to view the test server
+        Note: Here, the CSS and JavaScript files might not work in dev build or test server, So to fix it proceed following steps:
+            1. Add @vite('resources/css/app.css') and @vite('resources/js/app.js') to the blade.php files in the views folder as you are importing CSS and JavaScript
+                files. But you can also use Tailwind CSS.
+
+->  To Push the dev build or test server changes into our production build or live server,
+    Run: npx vite build
+    This builds a build folder inside public folder where you can find assets folder with CSS and JavaScript included in compressed form for our Live server or Prodution Build.
