@@ -1,0 +1,33 @@
+📚  Day 47 - Learning Laravel: How to Use Get Type Routes [Part II]
+
+Route::get('/test', function () {
+    return "This is the Test!";
+})->name("testpage");
+
+# What this does:
+-> Defines a GET route for /test
+-> When someone visits /test, it will return this text: This is the Test!
+-> The route is named as "testpage"
+➤ So you can refer to it using route('testpage') in Blade or controllers (instead of hardcoding /test).
+
+
+
+Route::prefix("portfolio")->group(function(){
+    Route::get('/about', function (){
+        return view('about');
+    });
+
+    Route::get('/contact', function (){
+        return view('contact');
+    });
+});
+
+🧠 This is a group of routes that all start with /portfolio.
+
+It creates:
+
+URL	                What it shows
+/portfolio/about	Shows the about.blade.php view
+/portfolio/contact	Shows the contact.blade.php view
+
+🔹 The prefix("portfolio") saves you from repeating portfolio/ for each route.

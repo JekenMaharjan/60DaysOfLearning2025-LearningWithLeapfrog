@@ -13,7 +13,8 @@
         <p class="text-lg mb-6">A passionate Laravel & MERN stack developer 🚀</p>
         <a href="https://github.com/jekenmaharjan" target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
             View My GitHub
-        </a>
+        </a><br><br>
+        <a href="{{ route("testpage") }}" target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Test your page</a>
     </div>
 </body>
 </html>

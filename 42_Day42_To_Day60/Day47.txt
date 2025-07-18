@@ -1,4 +1,4 @@
-📚  Day 47 - Learning Laravel: How to Use Get Type Routes
+📚  Day 47 - Learning Laravel: How to Use Get Type Routes [Part I]
 
 ->  Routes in Laravel define how your application responds to different URLs or web requests.
 ->  In simple terms, when a user opens a link like yourwebsite.com/home, the route tells Laravel what to do – like return a view or call a controller function.
