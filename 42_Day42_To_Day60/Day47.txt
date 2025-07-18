@@ -1,0 +1,42 @@
+📚  Day 47 - Learning Laravel: How to Use Get Type Routes
+
+->  Routes in Laravel define how your application responds to different URLs or web requests.
+->  In simple terms, when a user opens a link like yourwebsite.com/home, the route tells Laravel what to do – like return a view or call a controller function.
+->  Example:
+        <?php
+
+        use Illuminate\Support\Facades\Route;
+
+        Route::get('/', function () {
+            return view('welcome');
+        });
+->  Example Explained:
+    1.  use Illuminate\Support\Facades\Route;
+    ->  This imports the Route class from Laravel. You need this to define routes using Route::get() or other methods.
+
+    2.  Route::get('/', function () {
+        return view('welcome');
+        });
+    ->  🔹 Route::get()
+        -> This means it's handling a GET request (when someone visits a URL in their browser).
+        -> '/' is the root URL of your website – e.g., http://localhost:8000 or https://yourdomain.com
+        🔹 function () { return view('welcome'); }
+        -> This is an anonymous function (closure) that runs when someone opens the / URL.
+        -> It returns a view called welcome, which is typically a Blade file located at:
+        resources/views/welcome.blade.php
+
+->  Example:
+        Route::get('/portfolio/{firstname}/{lastname}', function ($firstname, $lastname) {
+            return $firstname . " " . $lastname;
+        });
+-> Example Explained: 
+    -> This route is for the URL: /portfolio/{firstname}/{lastname}
+    -> {firstname} and {lastname} are dynamic values (called route parameters).
+        They can be anything the user types in the URL.
+    -> If you open this in your browser: http://localhost:8000/portfolio/jeken/maharjan
+    -> Then Laravel will:
+        -> Take jeken as $firstname
+        -> Take maharjan as $lastname
+        -> Run this function: return $firstname . " " . $lastname;
+        -> So it will show: jeken maharjan
+        
