@@ -1,0 +1,27 @@
+📚  Day 49 - Learning Laravel: How to Use POST Type Routes
+
+-> First created a simple form with fields fullname and email and then after submitting the form it shows your fullname and email.
+-> Then, added POST routes in web.php,
+
+    // Define a POST route for the URL "/formsubmitted"
+    Route::post("/formsubmitted", function (Request $request) {
+
+        // Validate the incoming request data
+        // 'fullname' is required and must be between 3 to 30 characters
+        // 'email' is required, must be a valid email, and between 3 to 30 characters
+        $request->validate([
+            'fullname' => 'required|min:3|max:30',
+            'email' => 'required|min:3|max:30|email',
+        ]);
+
+        // Get the 'fullname' value from the submitted form
+        $fullname = $request->input("fullname");
+
+        // Get the 'email' value from the submitted form
+        $email = $request->input("email");
+
+        // Return a response message with the entered fullname and email
+        return "Your fullname is $fullname and E-mail is $email!";
+        
+    // Give a name "formsubmitted" to this route for easy reference
+    })->name("formsubmitted");
