@@ -1,3 +1,16 @@
-<?php
+@extends('layouts.default')
 
-echo "This is portfolio page";
+
+@section('header')
+Laravel Learning – Master Laravel, One Step at a Time
+@endsection
+
+
+@section('mainContent')
+This is a Portfolio Page
+@endsection
+
+
+@section('footer')
+© 2025 | Built & designed by Jeken Maharjan. All rights reserved.
+@endsection

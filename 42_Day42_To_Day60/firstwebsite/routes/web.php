@@ -27,7 +27,7 @@ Route::get('/test', function () {
 // Simple GET route that returns the 'portfolio' view when someone visits '/portfolio'
 Route::get('/portfolio', function () {
     return view('portfolio');
-});
+})->name("portfolio");;
 
 // Grouping routes under a common prefix 'portfolio'
 Route::prefix("portfolio")->group(function () {
@@ -35,12 +35,12 @@ Route::prefix("portfolio")->group(function () {
     // This route returns the 'about' view when someone visits '/portfolio/about'
     Route::get('/about', function () {
         return view('about');
-    });
+    })->name("about");;
 
     // This route returns the 'contact' view when someone visits '/portfolio/contact'
     Route::get('/contact', function () {
         return view('contact');
-    });
+    })->name("contact");;
 });
 
 

@@ -1,0 +1,77 @@
+📚 Day 50 - Learning Laravel: How to Create Layouts in Laravel and Use @include to Reuse Views!
+
+1️⃣ Laravel Blade – Layouts & @include:
+-> So, while working in Laravel, I found that Blade (Laravel's templating engine) is super useful when it comes to managing HTML. Two main things that helped me make my pages cleaner and more organized are Layouts and the @include directive.
+
+    🧱 Layout – My Master Template:
+    -> A layout is basically a common page structure that I can reuse across multiple pages. Like, instead of repeating the same HTML for the navbar, footer, etc., on every page, I just create a master layout and then extend it in other pages.
+    -> I made a layout like this:
+        -> In resources/views/layouts/default.blade.php,
+
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>Welcome - Jeken</title>
+                <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+                @vite('resources/css/app.css')
+                @vite('resources/js/app.js')
+
+            </head>
+            <body class="bg-gray-800 flex flex-col items-center h-screen text-white justify-between">
+                <header class="bg-gray-700 p-5 text-3xl font-bold flex w-screen justify-center">
+                    @yield('header')
+                </header>
+
+                <main class="flex w-screen">
+                    @yield('mainContent')
+                </main>
+
+                <footer class="bg-gray-700 p-5 flex w-screen justify-center">
+                    @yield('footer')
+                </footer>
+
+            </body>
+            </html>
+            
+    -> Then in my actual page (like welcome page), I just use @extends to connect with the layout and @section to fill in the content.
+        -> In resources/views/welcome.blade.php,
+        
+            @extends('layouts.default')
+
+
+            @section('header')
+            Laravel Learning – Master Laravel, One Step at a Time
+            @endsection
+
+
+            @section('mainContent')
+            @include('sidebar')
+            @include('dashboard')
+            @endsection
+
+
+            @section('footer')
+            © 2025 | Built & designed by Jeken Maharjan. All rights reserved. 
+            @endsection
+
+    ➕ @include – For Reusable Parts:
+    -> The @include directive is like copy-pasting a file inside another view. So I created partials for my sidebar, dashboard, etc., and just included them wherever I needed.
+        -> In resources/views/sidebar.blade.php,
+
+            <div class="flex flex-col gap-5 bg-gray-600 p-15 m-5 rounded-xl h-100 justify-center text-center">
+                <p class="text-2xl font-semibold">SideBar</p>
+                <a href="{{ route('testpage') }}" target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Test your page</a>
+                <a href="{{ route('portfolio') }}" target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Portfolio page</a>
+                <a href="{{ route('about') }}" target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">About page</a>
+                <a href="{{ route('contact') }}" target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Contact page</a>
+            </div>
+
+        -> Then I just used:
+            @include('sidebar')
+            in the layout or even directly in a page if I wanted.
+
+✅ Why I Use Layouts and @include:
+    🔹 Keeps my code clean and DRY (Don’t Repeat Yourself!)
+    🔹 If I want to update the design, I can just update the layout once.
+    🔹 Helps me reuse common sections like header/footer without repeating code.
+    🔹 Easier to manage big projects.
