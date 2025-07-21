@@ -1,0 +1,86 @@
+📚 Day 51 - Learning Laravel: Insert Images And Create Models & Controllers in Laravel
+
+1️⃣ Insert Images into a Laravel Website:
+-> Syntax:
+    <img src="{{ asset('imagesFolderPath/imageName.imageFileType') }}" alt="Alternative for Images(Image Description)">
+
+-> Make sure to create a images or any folder name you want into public folder of your Laravel Project.
+-> Then, just use above syntax to insert images into your Laravel Project.
+
+
+2️⃣ Create Models & Controllers in Laravel:
+-> 
+    ✨ What is MVC?
+        -> MVC stands for Model, View, and Controller.
+        -> It is a design pattern used in Laravel (and many other frameworks) to separate logic, so that code is clean, organized, and easy to manage.
+
+
+    📁 1. Model (M) – Handles Data / Database
+        -> The Model is responsible for interacting with the database.
+        -> It represents a table in the database and helps in fetching, inserting, updating, and deleting data.
+        -> In Laravel, Models are usually found in the app/Models/ directory.
+        -> Example:
+                use App\Models\Product;
+                $products = Product::all();  // Gets all data from 'products' table
+        👉 Think of the Model as the "brain" that talks to the database.
+
+
+    🎨 2. View (V) – Handles What User Sees (UI)
+        -> The View is what the user sees on the screen – it's the frontend part.
+        -> It displays the data passed from the controller using HTML, CSS, and Blade (Laravel's templating engine).
+        -> Views are stored in the resources/views/ directory.
+        -> Example:
+                <!-- welcome.blade.php -->
+                <h1>Hello, {{ $name }}!</h1>
+        👉 Think of the View as the "face" of the app – beautiful and presentable.
+
+
+    🧠 3. Controller (C) – Handles Logic & Flow
+        -> The Controller acts like a middleman between Model and View.
+        -> It receives input from the user (like clicking a button), talks to the Model to get data, and sends that data to the View to display.
+        -> Controllers are stored in the app/Http/Controllers/ directory.
+        -> Example:
+                use App\Models\Product;
+
+                class ProductController extends Controller {
+                    public function index() {
+                        $products = Product::all();         // Fetch data using Model
+                        return view('products.index', compact('products')); // Send to View
+                    }
+                }
+        👉 Think of Controller as the "manager" that handles everything in between.
+
+
+    🔄 Simple MVC Flow
+        🔹 User requests a URL (e.g., /products).
+        🔹 Route points to a Controller method.
+        🔹 Controller:
+            -> Talks to Model to get data from the database.
+            -> Passes the data to the View.
+        🔹 View shows that data to the user.
+
+
+    📌 Real-life Example:
+        -> Let’s say you are building a Product Listing Page.
+            🔹 Model: Product.php – connects to products table in DB.
+            🔹 Controller: ProductController.php – fetches all products.
+            🔹 View: index.blade.php – displays the products in a grid.
+
+
+    ✅ Why is MVC useful?
+        -> Clean Code: Logic, data, and UI are separated.
+        -> Easy Maintenance: You can update view without touching logic.
+        -> Team Collaboration: Backend devs can work on Models/Controllers, frontend devs can focus on Views.
+        -> Reusable: You can reuse models and views in multiple places.
+
+
+🔥 Now, To Create Models and Controllers in Laravel:
+    -> Run : "php artisan make:model Post -mcr"
+        -> Meaning of above command:
+            -> php artisan → Tells Laravel you're using an Artisan command (Laravel’s command line tool).
+            -> make:model Post → Tells Laravel to create a new Model named Post.
+            -> -mcr → These are shortcuts to also create:
+                🔹 -m = Migration file
+                🔹 -c = Controller
+                🔹 -r = Resource controller (with standard CRUD methods)
+    

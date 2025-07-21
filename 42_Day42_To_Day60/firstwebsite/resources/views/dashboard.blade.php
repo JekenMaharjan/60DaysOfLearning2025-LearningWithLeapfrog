@@ -1,12 +1,18 @@
-<div class="text-center ml-100">
-    <div class="title"><h1>👋 Hello, I'm Jeken Maharjan</h1></div>    
+<div class="flex flex-col text-center ml-100">
+    <div class="flex justify-center">
+        <img src="{{ asset('images/profilePic.png') }}" alt="Profile Picture" class="h-60 w-60 rounded-xl">
+    </div>
+    <div class="title">
+        <h1>👋 Hello, I'm Jeken Maharjan</h1>
+    </div>    
     <p class="text-lg mb-6">A passionate Laravel & MERN stack developer 🚀</p>
-    <a href="https://github.com/jekenmaharjan" target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-        View My GitHub
-    </a>
-    <br><br>
-    
-    <br><br>
+    <div class="flex justify-center">
+        <a href="https://github.com/jekenmaharjan" target="_blank" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+            View My GitHub
+        </a>
+    </div>
+    <br>
+
     <div class="border-white p-5 m-5 border-2 rounded-xl">
         <h3 class="text-3xl font-bold">Laravel Basic FORM</h3>
         <br>
