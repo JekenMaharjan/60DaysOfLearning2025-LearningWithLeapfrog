@@ -1,0 +1,66 @@
+📚 Day 52 - Learning Laravel: Create Database Tables in Laravel with Migrations
+
+
+1️⃣ Create a Table with migration:
+-> In create_posts_table.php file, path -> database/migrations/create_posts_table.php;
+    update, 
+        Schema::create('posts', function (Blueprint $table) {
+                $table->id();
+                $table->string('title');
+                $table->text('message');
+                $table->timestamps();
+            });
+
+-> Then, Run -> php artisan migrate
+-> In phpMyAdmin, this creates new table named posts with columns id, title, message, created_at and updated_at.
+-> Since,
+        $table->id();                   ->      creates id column
+        $table->string('title');        ->      creates title column
+        $table->text('message');        ->      creates message column
+        $table->timestamps();           ->      creates created_at and updated_at columns
+
+
+2️⃣ If you make mistake while working with database and you want to rollback migrate then,
+    Run -> php artisan migrate:rollback
+-> And, if you want to remigrate the table then again, just Run -> php artisan migrate
+
+
+3️⃣ Since, php artisan migrate, migrates all the files or tables of migrations folder of database.
+    But, if you want to only migrate particular file or table then Run -> php artisan migrate --path=database/migrations/2025_07_21_163747_create_posts_table.php
+    Again, if you want to rollback then Run -> php artisan migrate:rollback --path=database/migrations/2025_07_21_163747_create_posts_table.php
+
+
+4️⃣ command -> php artisan migrate:refresh
+-> What it actually does:
+    1. Rolls back all migrations – Drops all the tables in your database that were created by migrations.
+    2. Re-runs all migrations – Runs all the migration files again in the order they were created.
+-> Think of it as: Delete everything and rebuild the structure of the database from scratch using the migration files.
+
+
+5️⃣ 🔐 protected $fillable = ['title', 'message'];
+-> Update Post.php file of path -> app/models/post.php into,
+        class Post extends Model
+        {
+            protected $fillable = ['title', 'message'];
+        }
+
+-> This line tells Laravel: "Only allow these fields (title and message) to be filled or saved in the database in bulk."
+
+    🧠 Why is it important?
+    -> Laravel protects your database from something called Mass Assignment Vulnerability.
+    -> If you allow users to submit forms (like creating a post), someone could try to insert extra fields (like is_admin, user_id, etc.) into the database. That could be dangerous!
+
+    🛡️ So in simple words: $fillable acts like a safety filter that tells Laravel: “Only let these specific fields be saved when using create() or update() with an array.”
+
+    ✅ Example:
+    -> Imagine a form where users create a post:
+            Post::create([
+            'title' => 'My First Post',
+            'message' => 'This is the message',
+            'is_admin' => true
+            ]);
+
+    -> Without $fillable, Laravel might allow is_admin to be saved — which is bad. But with this:
+            protected $fillable = ['title', 'message'];
+    
+    -> Only title and message will be saved. The rest (like is_admin) will be ignored.
