@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 // Import the Request class to handle HTTP request data
 use Illuminate\Http\Request;
+use App\Http\Controllers\PostController;
 
 // GET route for the homepage ('/')
 // When someone visits the root URL, it returns the 'welcome' view
@@ -67,3 +68,6 @@ Route::post("/formsubmitted", function (Request $request) {
     
 // Give a name "formsubmitted" to this route for easy reference
 })->name("formsubmitted");
+
+
+Route::resource('posts', PostController::class);
