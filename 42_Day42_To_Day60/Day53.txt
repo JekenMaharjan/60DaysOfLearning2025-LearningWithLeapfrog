@@ -1,4 +1,4 @@
-📚 Day 52 - Learning Laravel: Laravel Controller Resource Methods - Setup Routes
+📚 Day 53 - Learning Laravel: Laravel Controller Resource Methods - Setup Routes
 
 1️⃣ Resource Route:
 -> Add "Route::resource('posts', PostController::class);" in web.php of routes folder of Laravel project.
