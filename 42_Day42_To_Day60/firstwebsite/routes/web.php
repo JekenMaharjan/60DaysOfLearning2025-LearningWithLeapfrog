@@ -6,6 +6,11 @@ use Illuminate\Support\Facades\Route;
 // Import the Request class to handle HTTP request data
 use Illuminate\Http\Request;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TaskController;
+
+
+// -----------------------------------------------------------------------------------------------
+
 
 // GET route for the homepage ('/')
 // When someone visits the root URL, it returns the 'welcome' view
@@ -45,6 +50,8 @@ Route::prefix("portfolio")->group(function () {
 });
 
 
+// -----------------------------------------------------------------------------------------------
+
 
 // Define a POST route for the URL "/formsubmitted"
 Route::post("/formsubmitted", function (Request $request) {
@@ -70,4 +77,15 @@ Route::post("/formsubmitted", function (Request $request) {
 })->name("formsubmitted");
 
 
+// -----------------------------------------------------------------------------------------------
+
+
 Route::resource('posts', PostController::class);
+
+
+// -----------------------------------------------------------------------------------------------
+
+
+Route::get('/', [TaskController::class, 'index'])->name('tasks.index');
+Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
+Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
