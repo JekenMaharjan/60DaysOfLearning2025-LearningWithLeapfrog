@@ -1,4 +1,4 @@
-📚 Day 55 ✅ - Learning Laravel with Docker 🐳
+📚 Day 55 - Learning Laravel with Docker 🐳
 
 📦 What is Docker?
 Docker is a containerization tool that packages your application and all its dependencies into a single container. It helps ensure consistency across different environments 
