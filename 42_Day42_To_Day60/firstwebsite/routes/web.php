@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\PortfolioController;
 
 
 // -----------------------------------------------------------------------------------------------
@@ -96,3 +97,9 @@ Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.
 // -----------------------------------------------------------------------------------------------
 
 
+
+
+Route::get('/portfolio', [PortfolioController::class, 'index'])->name('home');
+Route::get('/portfolio/about', [PortfolioController::class, 'about'])->name('about');
+Route::get('/portfolio/projects', [PortfolioController::class, 'projects'])->name('projects');
+Route::get('/portfolio/contact', [PortfolioController::class, 'contact'])->name('contact');
