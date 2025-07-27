@@ -1,1 +1,60 @@
-📚 Day 56 - 
+
+📚 Day 56 - Learning Laravel: ToDoList Application
+
+1️⃣ Overview:
+-> Built a simple ToDoList app using Laravel with full CRUD support.
+-> User can add, view, and delete tasks.
+-> Styled using Tailwind CSS for a clean and responsive layout.
+
+2️⃣ Routes (web.php):
+-> Defined routes manually:
+   - GET    /tasks             ➜ tasks.index (show all tasks)
+   - POST   /tasks             ➜ tasks.store (add a new task)
+   - DELETE /tasks/{task}      ➜ tasks.destroy (delete a task)
+
+3️⃣ Controller (TaskController.php):
+-> index():
+   - Retrieves latest tasks using `Task::latest()->get()`
+   - Passes data to `tasks.index` view
+-> store():
+   - Validates that title is provided
+   - Creates a new task with `$request->title`
+   - Redirects to task list
+-> destroy():
+   - Deletes the given task using route model binding
+   - Redirects back to the task list
+
+4️⃣ View (resources/views/tasks/index.blade.php):
+-> Page layout:
+   - Tailwind CSS used for styling and spacing
+   - Displays form to create new task
+   - Lists all tasks with a delete button for each
+-> Form:
+   - Uses POST method to /tasks with `@csrf` token
+   - Input field for task title
+-> Task List:
+   - Loops through `$tasks` using @foreach
+   - Each task has a delete button wrapped in a DELETE form with method spoofing and CSRF protection
+
+5️⃣ Model (Task.php):
+-> Eloquent model for tasks (inferred)
+-> Fillable field: 'title'
+
+6️⃣ Migration (create_tasks_table.php):
+-> Creates `tasks` table with:
+   - id
+   - title (string)
+   - timestamps
+
+7️⃣ Functionality Summary:
+    ✅ View All Tasks
+    ✅ Add New Task
+    ✅ Delete Task
+    ✅ Input Validation
+    ✅ Simple UI with TailwindCSS
+
+🎯 Learnings:
+-> Practiced Laravel fundamentals: routing, controllers, models, views
+-> Used Tailwind CSS for quick and responsive design
+-> Implemented basic CRUD operations using Eloquent
+-> Learned about route model binding and form protection with @csrf and @method

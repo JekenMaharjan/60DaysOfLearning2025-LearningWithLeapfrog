@@ -7,7 +7,7 @@
 <body class="bg-gray-100 p-10">
 
     <div class="max-w-xl mx-auto bg-white p-5 rounded shadow">
-        <h1 class="text-2xl font-bold mb-4">Task List</h1>
+        <h1 class="text-2xl font-bold mb-4">ToDo List</h1>
 
         <form method="POST" action="{{ route('tasks.store') }}" class="flex gap-2 mb-4">
             @csrf

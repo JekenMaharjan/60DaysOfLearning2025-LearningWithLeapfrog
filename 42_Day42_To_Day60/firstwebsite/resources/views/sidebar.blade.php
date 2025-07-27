@@ -4,5 +4,5 @@
     <a href="{{ route('portfolio') }}" target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Portfolio page</a>
     <a href="{{ route('about') }}" target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">About page</a>
     <a href="{{ route('contact') }}" target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Contact page</a>
-    <a href="{{ route('contact') }}" target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Contact page</a>
+    <a href="{{ route('tasks.index') }}" target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">ToDoList App</a>
 </div>
