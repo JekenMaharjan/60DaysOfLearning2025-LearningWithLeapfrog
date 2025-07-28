@@ -21,15 +21,18 @@ Route::get('/', function () {
 
 // Route with parameters: accepts firstname and lastname from the URL
 // Example: /portfolio/John/Doe will return "John Doe"
+
+
+/*
 Route::get('/portfolio/{firstname}/{lastname}', function ($firstname, $lastname) {
     return $firstname . " " . $lastname;
-});
-
-// Named route example
-// This route can be referred to as 'testpage' in the code (like in redirects or links)
-Route::get('/test', function () {
-    return "This is the Test!";
-})->name("testpage");
+    });
+    
+    // Named route example
+    // This route can be referred to as 'testpage' in the code (like in redirects or links)
+    Route::get('/test', function () {
+        return "This is the Test!";
+    })->name("testpage");
 
 // Simple GET route that returns the 'portfolio' view when someone visits '/portfolio'
 Route::get('/portfolio', function () {
@@ -49,7 +52,7 @@ Route::prefix("portfolio")->group(function () {
         return view('contact');
     })->name("contact");;
 });
-
+*/
 
 // -----------------------------------------------------------------------------------------------
 
@@ -98,8 +101,8 @@ Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.
 
 
 
-
-Route::get('/portfolio', [PortfolioController::class, 'index'])->name('home');
-Route::get('/portfolio/about', [PortfolioController::class, 'about'])->name('about');
-Route::get('/portfolio/projects', [PortfolioController::class, 'projects'])->name('projects');
-Route::get('/portfolio/contact', [PortfolioController::class, 'contact'])->name('contact');
+// Route for the 'Portfolio' controller
+Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio.index');
+Route::get('/portfolio/about', [PortfolioController::class, 'about'])->name('portfolio.about');
+Route::get('/portfolio/projects', [PortfolioController::class, 'projects'])->name('portfolio.projects');
+Route::get('/portfolio/contact', [PortfolioController::class, 'contact'])->name('portfolio.contact');
