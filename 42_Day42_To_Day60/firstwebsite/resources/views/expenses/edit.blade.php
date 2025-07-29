@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.expensesDefault')
 
 @section('content')
 <h2 class="text-lg font-semibold mb-4">Edit Expense</h2>
@@ -11,5 +11,5 @@
     <input name="date" type="date" value="{{ $expense->date }}" class="w-full border p-2" required>
     <button type="submit" class="bg-blue-600 text-white px-4 py-2">Update Expense</button>
 </form>
-<a href="{{ route('expenses.index') }}" class="text-blue-500 mt-4 inline-block">← Back to Dashboard</a>
+<a href="{{ route('expenses.index') }}" class="bg-gray-800 p-3 rounded-xl text-blue-500 mt-4 inline-block">← Back to Dashboard</a>
 @endsection

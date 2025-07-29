@@ -1,0 +1,74 @@
+
+📚 Day 59 - Learning Laravel: Expense Tracker with Authentication
+
+1️⃣ Overview:
+-> Built an Expense Tracker application using Laravel framework.
+-> Added user authentication using Laravel Breeze.
+-> Each user can add, view, and manage their own expenses.
+
+2️⃣ Authentication Setup:
+-> Installed Laravel Breeze for auth scaffolding.
+-> Enabled registration, login, logout, and dashboard redirection.
+-> Protected expense routes with middleware for authenticated users.
+
+3️⃣ Routes (web.php):
+-> Used resource routing for expenses.
+   - GET /expenses            ➜ index (list user's expenses)
+   - GET /expenses/create     ➜ create (form to add expense)
+   - POST /expenses           ➜ store (save new expense)
+   - GET /expenses/{id}/edit  ➜ edit (form to update expense)
+   - PUT /expenses/{id}       ➜ update (update expense)
+   - DELETE /expenses/{id}    ➜ destroy (delete expense)
+
+4️⃣ Controller (ExpenseController.php):
+-> index():
+   - Shows all expenses for the logged-in user ordered by date.
+-> create():
+   - Returns a form to add a new expense.
+-> store():
+   - Validates and stores the expense related to the current user.
+-> edit():
+   - Allows user to edit only their own expenses.
+-> update():
+   - Updates the expense record in the database.
+-> destroy():
+   - Deletes the selected expense.
+
+5️⃣ Views (resources/views/expenses/*.blade.php):
+-> Designed with TailwindCSS and Blade for responsive design.
+
+🔹 index.blade.php:
+   - Displays a table of user expenses with edit/delete buttons.
+
+🔹 create.blade.php:
+   - Form for entering amount, category, note, and date.
+
+🔹 edit.blade.php:
+   - Editable form pre-filled with selected expense details.
+
+6️⃣ Migration Files:
+-> Created 4 migration files:
+   ✅ create_expenses_table.php: Defined amount, category, note, date, user_id.
+   ✅ add_user_id_to_expenses_table.php: Linked expenses to users.
+   ✅ add_date_to_expenses_table.php: Ensured the 'date' column was created.
+   ✅ create_personal_access_tokens_table.php: For API token support (optional).
+
+7️⃣ Fixes & Debugging:
+-> Faced error: "Unknown column 'date' in 'order clause'".
+-> Fixed by checking if the 'date' column existed in the database.
+-> Dropped all tables, re-migrated using: 
+   - php artisan migrate:fresh 
+-> Then verified that all required columns (including 'date') were created.
+
+8️⃣ Functionality Summary:
+    ✅ Full CRUD operations for expenses
+    ✅ User-specific expense management
+    ✅ Authentication using Breeze
+    ✅ Proper relationship between user and expense
+    ✅ Blade views with TailwindCSS styling
+
+🎯 Learnings:
+-> Implemented secure and user-authenticated expense management
+-> Understood migration order and fixing column errors
+-> Practiced form validation, relationships, and route protection
+-> Strengthened debugging and Laravel fundamentals

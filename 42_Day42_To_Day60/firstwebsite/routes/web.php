@@ -9,6 +9,8 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ExpenseController;
 
 
 // -----------------------------------------------------------------------------------------------
@@ -114,3 +116,25 @@ Route::get('/portfolio/contact', [PortfolioController::class, 'contact'])->name(
 // Route for the 'Contact' controller
 Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
 Route::resource('contacts', ContactController::class);
+
+
+// -----------------------------------------------------------------------------------------------
+
+
+// Route for the 'Expense' Controller
+Route::get('/register', [AuthController::class, 'showRegister'])->name('auth.register');
+Route::post('/register', [AuthController::class, 'register']);
+
+Route::get('/login', [AuthController::class, 'showLogin'])->name('auth.login');
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::middleware('auth')->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+    Route::get('/expenses', [ExpenseController::class, 'index'])->name('expenses.index');
+    Route::get('/expenses/create', [ExpenseController::class, 'create'])->name('expenses.create');
+    Route::post('/expenses', [ExpenseController::class, 'store'])->name('expenses.store');
+    Route::get('/expenses/{expense}/edit', [ExpenseController::class, 'edit'])->name('expenses.edit');
+    Route::put('/expenses/{expense}', [ExpenseController::class, 'update'])->name('expenses.update');
+    Route::delete('/expenses/{expense}', [ExpenseController::class, 'destroy'])->name('expenses.destroy');
+});
