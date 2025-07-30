@@ -1,0 +1,52 @@
+
+📚 Day 60 - Learning Laravel: Employee Attendance System
+
+1️⃣ Overview:
+-> Built an Employee Attendance System using Laravel framework.
+-> Allows daily check-in and check-out for each employee.
+-> Simple, clean interface with Blade and TailwindCSS.
+
+2️⃣ Models & Controllers:
+-> Employee model: represents the staff in the system.
+-> Attendance model: tracks each check-in and check-out record.
+-> AttendanceController:
+   - index(): Fetches all employees and their attendance for today.
+   - checkIn(): Validates and records check-in time.
+   - checkOut(): Validates and records check-out time.
+
+3️⃣ Routes (web.php):
+-> GET /attendance               ➜ index (list employees & actions)
+-> POST /attendance/checkin/{id} ➜ checkIn (submit check-in)
+-> POST /attendance/checkout/{id} ➜ checkOut (submit check-out)
+
+4️⃣ Views (resources/views/attendance/index.blade.php):
+-> Displays table of employees.
+-> Shows check-in and check-out times for today.
+-> Includes buttons to perform check-in and check-out.
+
+🔹 index.blade.php:
+   - Table includes: Name, Check In, Check Out, Actions.
+   - Uses TailwindCSS for styling and layout.
+   - Displays success/error messages using session flash data.
+
+5️⃣ Database Setup:
+-> Migrations created for:
+   ✅ employees table (name, email, etc.)
+   ✅ attendances table (employee_id, check_in, check_out, timestamps)
+
+6️⃣ Logic Highlights:
+-> Ensured employees can't check in more than once per day.
+-> Prevented check-out before check-in.
+-> Attendance is tracked only for the current date using Carbon.
+
+7️⃣ Functionality Summary:
+    ✅ Check-in and Check-out once per day
+    ✅ Validation for duplicate or invalid actions
+    ✅ Dynamic attendance display for current day
+    ✅ Blade + TailwindCSS UI
+
+🎯 Learnings:
+-> Practiced building real-world functionality with Laravel
+-> Applied validation and session flash messages
+-> Strengthened MVC pattern understanding
+-> Improved Blade templating and UI structuring with Tailwind

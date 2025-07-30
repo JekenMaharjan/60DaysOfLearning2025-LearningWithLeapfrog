@@ -11,6 +11,8 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\EmployeeController;
 
 
 // -----------------------------------------------------------------------------------------------
@@ -138,3 +140,21 @@ Route::middleware('auth')->group(function () {
     Route::put('/expenses/{expense}', [ExpenseController::class, 'update'])->name('expenses.update');
     Route::delete('/expenses/{expense}', [ExpenseController::class, 'destroy'])->name('expenses.destroy');
 });
+
+
+// -----------------------------------------------------------------------------------------------
+
+
+// Route for School/Job Attendance System
+
+// Route for the 'Employee' Controller
+Route::resource('employees', EmployeeController::class)->only(['index', 'create', 'store', 'destroy']);
+
+
+// Route for the 'Attendance' Controller
+Route::get('/attendance', [AttendanceController::class, 'index'])->name('attendance.index');
+Route::post('/check-in/{employee}', [AttendanceController::class, 'checkIn'])->name('checkin');
+Route::post('/check-out/{employee}', [AttendanceController::class, 'checkOut'])->name('checkout');
+
+
+// -----------------------------------------------------------------------------------------------

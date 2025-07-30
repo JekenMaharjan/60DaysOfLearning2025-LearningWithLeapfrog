@@ -5,4 +5,5 @@
     <a href="{{ route('portfolio.index') }}" target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">My Portfolio</a>
     <a href="{{ route('contacts.index') }}" target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Contact Book</a>
     <a href="{{ route('auth.register') }}" target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Expenses Tracker API</a>
+    <a href="{{ route('attendance.index') }}" target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">School/Job Attendance System</a>
 </div>
