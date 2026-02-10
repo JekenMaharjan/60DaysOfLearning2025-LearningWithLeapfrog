@@ -1,3 +1,9 @@
+
+<!-- 
+-> Run on localhost: php -S localhost:8000
+-> Run on terminal: php index.php
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +13,7 @@
 </head>
 <body>
     <?php
-        echo "Hello, PHP with XAMPP!";
+    echo "Hello, PHP with XAMPP!";
     ?>
 </body>
 </html>
