@@ -57,11 +57,11 @@
         function mySecondTest() {
             $x1 = 5; // local scope
             echo "<p>Variable x inside function is: $x1</p>";
-          }
-          myTest();
-          
-          // using x outside the function will generate an error
-          echo "<p>Variable x outside function is: $x1</p>";
+        }
+        myTest();
+        
+        // using x outside the function will generate an error
+        echo "<p>Variable x outside function is: $x1</p>";
 
         // --------------------------------------------
 
@@ -96,11 +96,11 @@
             static $x = 0;
             echo $x;
             $x++;
-          }
-          
-          myTest();
-          myTest();
-          myTest();
+        }
+        
+        myTest();
+        myTest();
+        myTest();
 
         // --------------------------------------------
 
@@ -174,11 +174,11 @@
             public $color;
             public $model;
             public function __construct($color, $model) {
-              $this->color = $color;
-              $this->model = $model;
+                $this->color = $color;
+                $this->model = $model;
             }
             public function message() {
-              return "My car is a " . $this->color . " " . $this->model . "!";
+                return "My car is a " . $this->color . " " . $this->model . "!";
             }
         }
         
