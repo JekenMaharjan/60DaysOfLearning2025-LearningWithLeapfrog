@@ -1,4 +1,4 @@
-# Day 5 :  PHP Strings & Modify Strings
+# Day 5 : PHP Strings & Modify Strings
 
 ## PHP Strings
 
