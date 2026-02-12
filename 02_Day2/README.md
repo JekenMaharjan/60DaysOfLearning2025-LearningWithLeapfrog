@@ -1,4 +1,4 @@
-# PHP Installation
+# Day 2 : PHP Installation
 
 ## Setting up PHP using XAMPP
 

@@ -1,4 +1,4 @@
-# PHP Comments, Variables, Echo and Datatypes
+# Day 3 : PHP Comments, Variables, Echo and Datatypes
 
 ## PHP Comments
 
